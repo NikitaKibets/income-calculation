@@ -10,22 +10,16 @@ let appData = {
   savings: false,
 };
 
-for (let i = 0; i < 2; i++) {
-  let a = prompt("Введите обязательную статью расходов в этом месяце?", "");
-  let b = prompt("Во сколько это обойдётся?", "");
+let a = prompt("Введите обязательную статью расходов в этом месяце?", "");
+let b = prompt("Во сколько это обойдётся?", "");
 
-  if (
-    typeof a === "string" &&
-    typeof a != null &&
-    typeof b != null &&
-    a != "" &&
-    b != "" &&
-    a.length < 50
-  ) {
-    console.log(a, "a");
-    appData.expenses[a] = b;
-  }
-}
+while (typeof a === 'string') {
+  a = prompt('Введите обязательную статью расходов в этом месяце?', "");
+  b = prompt("Во сколько это обойдётся?", "");
+  console.log(a, b);
+  appData.expenses[a] = b;
+  if (typeof a === null || a === '' || typeof b === null || b === '') break;
+};
 
 appData.moneyPerDay = appData.budget / 30;
 
